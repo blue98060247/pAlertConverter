@@ -101,7 +101,7 @@ async function tick(watchDir, outputFile, intervalMs) {
     entries = fs.readdirSync(watchDir);
   } catch (err) {
     console.error(`[event-watcher] Cannot read ${watchDir}: ${err.message}`);
-    fs.appendFileSync(outputFile, `'${timestamp}',0,0,0\r\n`, 'utf8');
+    fs.appendFileSync(outputFile, `${timestamp},0,0,0\r\n`, 'utf8');
     return;
   }
 
@@ -111,8 +111,8 @@ async function tick(watchDir, outputFile, intervalMs) {
   });
 
   if (matched.length === 0) {
-    fs.appendFileSync(outputFile, `'${timestamp}',0,0,0\r\n`, 'utf8');
-    console.log(`[event-watcher] none → '${timestamp}',0,0,0`);
+    fs.appendFileSync(outputFile, `${timestamp},0,0,0\r\n`, 'utf8');
+    console.log(`[event-watcher] none → ${timestamp},0,0,0`);
     return;
   }
 
@@ -131,8 +131,8 @@ async function tick(watchDir, outputFile, intervalMs) {
     }
   }
 
-  fs.appendFileSync(outputFile, `'${timestamp}',${maxIntensity},${maxPGA},${maxPGV}\r\n`, 'utf8');
-  console.log(`[event-watcher] ok → '${timestamp}',${maxIntensity},${maxPGA},${maxPGV}`);
+  fs.appendFileSync(outputFile, `${timestamp},${maxIntensity},${maxPGA},${maxPGV}\r\n`, 'utf8');
+  console.log(`[event-watcher] ok → ${timestamp},${maxIntensity},${maxPGA},${maxPGV}`);
 }
 
 function scheduleNext(watchDir, outputFile, intervalMs) {

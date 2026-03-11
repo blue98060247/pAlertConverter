@@ -79,8 +79,8 @@ function processFile(filePath, outputFile) {
     bMax = Math.round(bMax * 1e6) / 1e6;
     cMax = Math.round(cMax * 1e6) / 1e6;
 
-    fs.appendFileSync(outputFile, `'${startTime}',${aMax},${bMax},${cMax}\r\n`, 'utf8');
-    console.log(`[converter] ${name} → '${startTime}',${aMax},${bMax},${cMax}`);
+    fs.appendFileSync(outputFile, `${startTime},${aMax},${bMax},${cMax}\r\n`, 'utf8');
+    console.log(`[converter] ${name} → ${startTime},${aMax},${bMax},${cMax}`);
   });
 
   rl.on('error', (err) => console.error(`[converter] ${name}: ${err.message}`));
