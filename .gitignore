@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Runtime output files
+*.dat
+logs/
+
+# Input data (CSV sensor files)
+data/
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db

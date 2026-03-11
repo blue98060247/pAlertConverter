@@ -1,0 +1,26 @@
+{
+  "apps": [
+    {
+      "name": "palert-converter",
+      "script": "converter.js",
+      "args": "./data ./output.dat",
+      "watch": false,
+      "autorestart": true,
+      "restart_delay": 3000,
+      "max_restarts": 10,
+      "log_file": "./logs/converter.log",
+      "time": true
+    },
+    {
+      "name": "palert-event-watcher",
+      "script": "event-watcher.js",
+      "args": "./data ./events.dat 5",
+      "watch": false,
+      "autorestart": true,
+      "restart_delay": 3000,
+      "max_restarts": 10,
+      "log_file": "./logs/event-watcher.log",
+      "time": true
+    }
+  ]
+}
